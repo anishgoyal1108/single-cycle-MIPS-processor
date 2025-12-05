@@ -1,0 +1,376 @@
+\documentclass[t,aspectratio=169,xcolor=dvipsnames]{beamer}
+\usefonttheme{professionalfonts}
+\usetheme{SimplePlusAIC}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and  \bottomrule in tables
+\usepackage{svg} % Allows using svg figures
+\usepackage{tikz}
+\usepackage{makecell}
+\newcommand*{\defeq}{\stackrel{\text{def}}{=}}
+\usepackage{setspace}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\usepackage{textgreek}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage{listings}
+\usepackage{xfrac}
+\usepackage[nice]{nicefrac}
+\usepackage[loose]{units}
+\usepackage{braket}
+\usepackage{physics}
+\usepackage{textcomp} % Replacing gensymb for symbols like \micro and \perthousand
+\usepackage[cm]{sfmath}
+\usepackage{bm}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+\usepackage[style=ieee]{citation-style-language}
+\addbibresource{references.bib}
+\setbeamercovered{transparent}
+\beamerdefaultoverlayspecification{<+->}
+\setbeamertemplate{blocks}[rounded][shadow] % block options
+\usepackage[svgnames,table]{xcolor}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\arrayrulecolor{black}
+\setlength{\arrayrulewidth}{0.20mm}
+\renewcommand{\arraystretch}{1.40}  % stretch tables row size
+\tracinglostchars=0
+
+%================================================
+%	TITLE PAGE
+%================================================
+\title[short title]{EENG 5342 Project} 
+\subtitle{Single-Cycle MIPS Processor}
+
+\author[Surname]{\texorpdfstring{Anish Goyal and Killian McCrary}{Anish Goyal and Killian McCrary}}
+\institute[CBI]{Department of Electrical/Computer Engineering \\ Georgia Southern University \\ Statesboro, GA \\ }
+
+\date{\textcolor{nyublue}{December 3, 2025}}
+
+%================================================
+%	BEGIN DOCUMENT 
+%================================================
+\begin{document}
+\nocite{*}
+
+%------------------------------------------------
+%	TITLE SLIDE
+%------------------------------------------------
+\settitlepagebackground
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+\resetbackground
+
+%------------------------------------------------
+%	OUTLINE SLIDE
+%------------------------------------------------
+{
+\beamerdefaultoverlayspecification{}
+\begin{frame}[plain]
+    \frametitle{Outline}
+    \begin{columns}[t]
+        \begin{column}{.5\textwidth}
+            \begin{spacing}{1.3}
+                \tableofcontents[sections={1-3}]
+            \end{spacing}
+        \end{column}
+        \begin{column}{.5\textwidth}
+            \begin{spacing}{1.2}
+                \tableofcontents[sections={4-6}]
+            \end{spacing}
+        \end{column}
+    \end{columns}
+\end{frame}
+}
+
+\setsectioncontent{An overview of the task at hand and what we planned to accomplish.}
+\section{Introduction}
+
+\subsection{Motivation}
+\begin{frame}
+    \frametitle{Motivation}
+    \framesubtitle{Why we chose this project}
+    
+    \begin{itemize}
+        \item Gain hands-on experience with processor architecture
+        \item Understand the datapath and control unit interaction
+        \item Apply VHDL skills to a complex, multi-component system
+        \item Bridge the gap between theoretical CPU design and practical implementation
+    \end{itemize}
+\end{frame}
+
+\subsection{Abstract}
+\begin{frame}
+    \frametitle{Abstract} 
+    \framesubtitle{Overview of the project and its goals}
+    
+    \begin{itemize}
+        \item Implemented a single-cycle MIPS processor in VHDL
+        \item Supports R-type, I-type, and memory instructions
+        \item Key components include:
+        \begin{itemize}
+            \item Program Counter (PC)
+            \item Instruction Memory
+            \item Register File (32 registers)
+            \item ALU with controller
+            \item Data Memory
+            \item Main Control Unit
+        \end{itemize}
+        \item Validated via functional simulation in Questa/ModelSim
+    \end{itemize}
+\end{frame}
+
+\subsection{What was planned}
+\begin{frame}
+    \frametitle{What was planned}
+    \framesubtitle{Our objectives}
+    
+    \begin{itemize}
+        \item Create a fully functional single-cycle MIPS datapath
+        \item Support the following instruction types:
+        \begin{itemize}
+            \item R-type: \texttt{add}, \texttt{sub}, \texttt{and}, \texttt{or}, \texttt{slt}
+            \item I-type: \texttt{lw}, \texttt{sw}
+        \end{itemize}
+        \item Integrate all components via schematic capture in Quartus
+        \item Verify correctness through waveform simulation
+    \end{itemize}
+\end{frame}
+
+\setsectioncontent{Detailed explanation of the approach and techniques used.}
+\section{Methodology}
+
+\subsection{Design}
+\begin{frame}
+    \frametitle{Design}
+    \framesubtitle{Overview of the design process}
+    
+    \begin{itemize}
+        \item Based on the classic MIPS single-cycle architecture
+        \item Each instruction executes in one clock cycle
+        \item Datapath connects:
+        \begin{itemize}
+            \item PC $\rightarrow$ Instruction Memory $\rightarrow$ Register File
+            \item ALU performs computation
+            \item Data Memory for load/store operations
+        \end{itemize}
+        \item Control signals generated by Main Control and ALU Controller
+    \end{itemize}
+\end{frame}
+
+\setsectioncontent{Details on how the processor was built and tested.}
+\section{Implementation}
+
+\subsection{Block Diagram}
+\begin{frame}
+    \frametitle{Block Diagram}
+    \framesubtitle{Schematic overview of the datapath}
+    
+    \begin{itemize}
+        \item Full datapath designed using Quartus Block Diagram File (.bdf)
+        \item Components instantiated as VHDL symbols
+        \item Wiring completed manually in schematic editor
+        \item Video walkthrough of the block schematic:
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    \centering
+    \href{https://youtu.be/19uMkeUoLpE}{\texttt{\underline{https://youtu.be/19uMkeUoLpE}}}
+\end{frame}
+
+\subsection{Opcode Implementation}
+\begin{frame}
+    \frametitle{Opcode Implementation}
+    \framesubtitle{Control signal generation based on instruction opcode}
+    
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \begin{itemize}
+                \item Main Control decodes 6-bit opcode
+                \item Generates control signals:
+                \begin{itemize}
+                    \item \texttt{RegDst}, \texttt{ALUSrc}
+                    \item \texttt{MemtoReg}, \texttt{RegWrite}
+                    \item \texttt{MemRead}, \texttt{MemWrite}
+                    \item \texttt{Branch}, \texttt{ALUOp}
+                \end{itemize}
+                \item ALU Controller uses \texttt{ALUOp} and \texttt{funct} field
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{figures/Opcode Table.png}
+                \caption{Opcode table for control signal generation}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\subsection{Key Components}
+\begin{frame}
+    \frametitle{Key Components}
+    \framesubtitle{Two important components of the datapath}
+    
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \textbf{ALU Controller}
+            \begin{itemize}
+                \item Receives \texttt{ALUOp} from Main Control
+                \item Decodes \texttt{funct} field for R-type
+                \item Outputs 4-bit ALU control signal
+                \item Supports: ADD, SUB, AND, OR, SLT
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \textbf{Register File}
+            \begin{itemize}
+                \item 32 general-purpose registers
+                \item Dual read ports, single write port
+                \item Synchronous write on clock edge
+                \item Register \$0 hardwired to zero
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\setsectioncontent{Summary of simulation results.}
+\section{Results}
+
+\subsection{Sample Waveform}
+\begin{frame}[fragile]
+    \frametitle{Sample Waveform}
+    \framesubtitle{Functional simulation output}
+    
+    \textbf{Initial Conditions:}
+    \begin{itemize}
+        \item Registers \texttt{\$0} -- \texttt{\$31} initialized to values \texttt{0} -- \texttt{31}
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{Test Instructions:}
+    \begin{Verbatim}[fontsize=\small]
+x"012a4020"  -- 0x012A4020 -> add $8, $9, $10
+x"01285022"  -- 0x01285022 -> sub $10, $9, $8
+x"8e510000"  -- 0x8E510000 -> lw $17, 0($18)
+x"ae290004"  -- 0xAE290004 -> sw $9, 4($17)
+    \end{Verbatim}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Sample Waveform}
+    \framesubtitle{Simulation results}
+    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.95\textwidth]{figures/Waveform.png}
+        \caption{Waveform output from Questa/ModelSim functional simulation}
+    \end{figure}
+\end{frame}
+
+\setsectioncontent{Challenges encountered and potential future work.}
+\section{Challenges and Improvements}
+
+\subsection{Problems During Design}
+\begin{frame}
+    \frametitle{Problems During Design}
+    \framesubtitle{Issues encountered during implementation}
+    
+    \begin{itemize}
+        \item \textbf{Bus naming convention} -- inconsistent naming caused wiring issues
+        \item \textbf{Quartus schematic editor} -- unreliable click registration and net changes
+        \item \textbf{Input/output pin naming} -- required careful matching
+        \item \textbf{Constant value generation} -- needed explicit constant blocks
+        \item \textbf{Functional simulation} -- required \texttt{voptargs="+acc"} on personal laptop
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Problems During Design}
+    \framesubtitle{Additional issues}
+    
+    \begin{itemize}
+        \item \textbf{XOR overriding SUB} -- class code had XOR opcode conflicting with SUB; required control value changes
+        \item \textbf{Questa license server} -- needed to set \texttt{SALT\_LICENSE\_SERVER} environment variable
+        \item \textbf{MemToReg mux polarity} -- flipped polarity inherent in reference diagram
+        \item \textbf{5-bit 2-to-1 mux} -- needed to create a special 6-bit mux before register file
+    \end{itemize}
+\end{frame}
+
+\subsection{Potential Improvements}
+\begin{frame}
+    \frametitle{Potential Improvements}
+    \framesubtitle{Future work and extensions}
+    
+    \begin{itemize}
+        \item \textbf{Half-period asymmetry} -- add half cycle of zero before first rising edge
+        \item \textbf{Pipelining} -- implement 5-stage pipeline with data hazard detection
+        \item \textbf{Jump support} -- add unconditional jump (\texttt{j}) instruction
+        \item \textbf{Real-time output} -- display register/memory values to console
+        \item \textbf{Live instruction input} -- avoid recompilation for instruction changes
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Potential Improvements}
+    \framesubtitle{Additional enhancements}
+    
+    \begin{itemize}
+        \item \textbf{Pipeline registers} -- add registers between stages
+        \item \textbf{Additional operations} -- multiplication, division, shifting
+        \item \textbf{Data forwarding} -- bypass paths for hazard mitigation
+        \item \textbf{FPGA deployment} -- synthesize and run on actual hardware
+    \end{itemize}
+\end{frame}
+
+\subsection{Conclusion}
+\begin{frame}
+    \frametitle{Conclusion}
+    \framesubtitle{Summary of results}
+    
+    \begin{itemize}
+        \item Successfully implemented a single-cycle MIPS processor
+        \item Supports R-type (\texttt{add}, \texttt{sub}) and I-type (\texttt{lw}, \texttt{sw}) instructions
+        \item Verified functionality through waveform simulation
+        \item Gained practical experience with datapath design and control logic
+        \item Identified areas for future improvement and extension
+    \end{itemize}
+\end{frame}    
+
+\beamerdefaultoverlayspecification{}
+\begin{frame}[plain]
+    \frametitle{References}
+    \printbibliography
+\end{frame}
+
+\conclusionpage
+\end{document}

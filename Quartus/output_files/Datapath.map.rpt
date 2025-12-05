@@ -1,0 +1,1826 @@
+Analysis & Synthesis report for Datapath
+Wed Dec  3 16:46:02 2025
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Registers Packed Into Inferred Megafunctions
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for DMem:inst4|altsyncram:myarray_rtl_0|altsyncram_n8u1:auto_generated
+ 16. Parameter Settings for User Entity Instance: LPM_CONSTANT:inst17
+ 17. Parameter Settings for Inferred Entity Instance: DMem:inst4|altsyncram:myarray_rtl_0
+ 18. altsyncram Parameter Settings by Entity Instance
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Dec  3 16:46:02 2025           ;
+; Quartus Prime Version           ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
+; Revision Name                   ; Datapath                                        ;
+; Top-level Entity Name           ; Datapath                                        ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 158                                             ;
+; Total pins                      ; 246                                             ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 1,024                                           ;
+; Total DSP Blocks                ; 0                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
+; Top-level entity name                                                           ; Datapath           ; Datapath           ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 10          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 10          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processors 3-10        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                         ;
++--------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path     ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                        ; Library ;
++--------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------+---------+
+; Adder.vhd                            ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Adder.vhd                            ;         ;
+; Datapath.bdf                         ; yes             ; User Block Diagram/Schematic File                     ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Datapath.bdf                         ;         ;
+; ShiftL2.vhd                          ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ShiftL2.vhd                          ;         ;
+; Sign_Ext.vhd                         ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd                         ;         ;
+; RegisterFile.vhd                     ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/RegisterFile.vhd                     ;         ;
+; Mux_2_1.vhd                          ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd                          ;         ;
+; InstructionMem.vhd                   ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/InstructionMem.vhd                   ;         ;
+; ALU_Controller.vhd                   ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU_Controller.vhd                   ;         ;
+; DMem.vhd                             ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/DMem.vhd                             ;         ;
+; MainControl.vhd                      ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd                      ;         ;
+; ALU.vhd                              ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd                              ;         ;
+; PC.vhd                               ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/PC.vhd                               ;         ;
+; Mux_2_1_5b.vhd                       ; yes             ; User VHDL File                                        ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1_5b.vhd                       ;         ;
+; lpm_constant.tdf                     ; yes             ; Megafunction                                          ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_constant.tdf             ;         ;
+; db/lpm_constant_4j4.tdf              ; yes             ; Auto-Generated Megafunction                           ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/db/lpm_constant_4j4.tdf              ;         ;
+; altsyncram.tdf                       ; yes             ; Megafunction                                          ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf               ;         ;
+; stratix_ram_block.inc                ; yes             ; Megafunction                                          ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/stratix_ram_block.inc        ;         ;
+; lpm_mux.inc                          ; yes             ; Megafunction                                          ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_mux.inc                  ;         ;
+; lpm_decode.inc                       ; yes             ; Megafunction                                          ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_decode.inc               ;         ;
+; aglobal251.inc                       ; yes             ; Megafunction                                          ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/aglobal251.inc               ;         ;
+; a_rdenreg.inc                        ; yes             ; Megafunction                                          ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/a_rdenreg.inc                ;         ;
+; altrom.inc                           ; yes             ; Megafunction                                          ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altrom.inc                   ;         ;
+; altram.inc                           ; yes             ; Megafunction                                          ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altram.inc                   ;         ;
+; altdpram.inc                         ; yes             ; Megafunction                                          ; c:/altera_lite/25.1std/quartus/libraries/megafunctions/altdpram.inc                 ;         ;
+; db/altsyncram_n8u1.tdf               ; yes             ; Auto-Generated Megafunction                           ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/db/altsyncram_n8u1.tdf               ;         ;
+; db/datapath.ram0_dmem_22ecb0.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/db/datapath.ram0_dmem_22ecb0.hdl.mif ;         ;
++--------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimate of Logic utilization (ALMs needed) ; 186               ;
+;                                             ;                   ;
+; Combinational ALUT usage for logic          ; 307               ;
+;     -- 7 input functions                    ; 0                 ;
+;     -- 6 input functions                    ; 52                ;
+;     -- 5 input functions                    ; 45                ;
+;     -- 4 input functions                    ; 63                ;
+;     -- <=3 input functions                  ; 147               ;
+;                                             ;                   ;
+; Dedicated logic registers                   ; 158               ;
+;                                             ;                   ;
+; I/O pins                                    ; 246               ;
+; Total MLAB memory bits                      ; 0                 ;
+; Total block memory bits                     ; 1024              ;
+;                                             ;                   ;
+; Total DSP Blocks                            ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; PC:inst8|PCout[3] ;
+; Maximum fan-out                             ; 219               ;
+; Total fan-out                               ; 2360              ;
+; Average fan-out                             ; 2.39              ;
++---------------------------------------------+-------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                          ; Entity Name     ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------+-----------------+--------------+
+; |Datapath                                 ; 307 (0)             ; 158 (0)                   ; 1024              ; 0          ; 246  ; 0            ; |Datapath                                                                    ; Datapath        ; work         ;
+;    |ALU:inst2|                            ; 102 (102)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Datapath|ALU:inst2                                                          ; ALU             ; work         ;
+;    |ALU_Controller:inst3|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Datapath|ALU_Controller:inst3                                               ; ALU_Controller  ; work         ;
+;    |Adder:inst|                           ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Datapath|Adder:inst                                                         ; Adder           ; work         ;
+;    |DMem:inst4|                           ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |Datapath|DMem:inst4                                                         ; DMem            ; work         ;
+;       |altsyncram:myarray_rtl_0|          ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |Datapath|DMem:inst4|altsyncram:myarray_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_n8u1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |Datapath|DMem:inst4|altsyncram:myarray_rtl_0|altsyncram_n8u1:auto_generated ; altsyncram_n8u1 ; work         ;
+;    |InstructionMem:inst5|                 ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Datapath|InstructionMem:inst5                                               ; InstructionMem  ; work         ;
+;    |MainControl:inst6|                    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Datapath|MainControl:inst6                                                  ; MainControl     ; work         ;
+;    |Mux_2_1:inst13|                       ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Datapath|Mux_2_1:inst13                                                     ; Mux_2_1         ; work         ;
+;    |Mux_2_1:inst15|                       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Datapath|Mux_2_1:inst15                                                     ; Mux_2_1         ; work         ;
+;    |PC:inst8|                             ; 0 (0)               ; 30 (30)                   ; 0                 ; 0          ; 0    ; 0            ; |Datapath|PC:inst8                                                           ; PC              ; work         ;
+;    |RegisterFile:inst9|                   ; 136 (136)           ; 128 (128)                 ; 0                 ; 0          ; 0    ; 0            ; |Datapath|RegisterFile:inst9                                                 ; RegisterFile    ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                  ;
++-------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------+
+; Name                                                                          ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                  ;
++-------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------+
+; DMem:inst4|altsyncram:myarray_rtl_0|altsyncram_n8u1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/Datapath.ram0_DMem_22ecb0.hdl.mif ;
++-------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                      ;
++-----------------------------------------------------+---------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal       ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------+------------------------+
+; ALU:inst2|Rtemp[31]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU_Controller:inst3|Y[2]                           ; VCC                       ; yes                    ;
+; ALU:inst2|Rtemp[30]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[29]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[28]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[27]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[26]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[25]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[24]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[23]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[22]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[21]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[20]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[19]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[18]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[17]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[16]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[15]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[14]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[13]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[12]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[11]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[10]                                 ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[9]                                  ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[8]                                  ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[7]                                  ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[6]                                  ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[5]                                  ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[4]                                  ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[3]                                  ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[2]                                  ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[1]                                  ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; ALU:inst2|Rtemp[0]                                  ; ALU_Controller:inst3|Y[2] ; yes                    ;
+; Number of user-specified and inferred latches = 33  ;                           ;                        ;
++-----------------------------------------------------+---------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; PC:inst8|PCout[1]                       ; Merged with PC:inst8|PCout[0]               ;
+; PC:inst8|PCout[0]                       ; Stuck at GND due to stuck port data_in      ;
+; RegisterFile:inst9|myarray~166          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~167          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~168          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~169          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~170          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~171          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~172          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~173          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~174          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~175          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~176          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~177          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~178          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~179          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~180          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~181          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~182          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~183          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~184          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~185          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~186          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~187          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~188          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~189          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~190          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~191          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~192          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~193          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~194          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~195          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~196          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~197          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~198          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~199          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~200          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~201          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~202          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~203          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~204          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~205          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~206          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~207          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~208          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~209          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~210          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~211          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~212          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~213          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~214          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~215          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~216          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~217          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~218          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~219          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~220          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~221          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~222          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~223          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~224          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~225          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~226          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~227          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~228          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~229          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~230          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~231          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~232          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~233          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~234          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~235          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~236          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~237          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~238          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~239          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~240          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~241          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~242          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~243          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~244          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~245          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~246          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~247          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~248          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~249          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~250          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~251          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~252          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~253          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~254          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~255          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~256          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~257          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~258          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~259          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~260          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~261          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~262          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~263          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~264          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~265          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~266          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~267          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~268          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~269          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~270          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~271          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~272          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~273          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~274          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~275          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~276          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~277          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~278          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~279          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~280          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~281          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~282          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~283          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~284          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~285          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~286          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~287          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~288          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~289          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~290          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~291          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~292          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~293          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~422          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~423          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~424          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~425          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~426          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~427          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~428          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~429          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~430          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~431          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~432          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~433          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~434          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~435          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~436          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~437          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~438          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~439          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~440          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~441          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~442          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~443          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~444          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~445          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~446          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~447          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~448          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~449          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~450          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~451          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~452          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~453          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~454          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~455          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~456          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~457          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~458          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~459          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~460          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~461          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~462          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~463          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~464          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~465          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~466          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~467          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~468          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~469          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~470          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~471          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~472          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~473          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~474          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~475          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~476          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~477          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~478          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~479          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~480          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~481          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~482          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~483          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~484          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~485          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~486          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~487          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~488          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~489          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~490          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~491          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~492          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~493          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~494          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~495          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~496          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~497          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~498          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~499          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~500          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~501          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~502          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~503          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~504          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~505          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~506          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~507          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~508          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~509          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~510          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~511          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~512          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~513          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~514          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~515          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~516          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~517          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~518          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~519          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~520          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~521          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~522          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~523          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~524          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~525          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~526          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~527          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~528          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~529          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~530          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~531          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~532          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~533          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~534          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~535          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~536          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~537          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~538          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~539          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~540          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~541          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~542          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~543          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~544          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~545          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~546          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~547          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~548          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~549          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~678          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~679          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~680          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~681          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~682          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~683          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~684          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~685          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~686          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~687          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~688          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~689          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~690          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~691          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~692          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~693          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~694          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~695          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~696          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~697          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~698          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~699          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~700          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~701          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~702          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~703          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~704          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~705          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~706          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~707          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~708          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~709          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~710          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~711          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~712          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~713          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~714          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~715          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~716          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~717          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~718          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~719          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~720          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~721          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~722          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~723          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~724          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~725          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~726          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~727          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~728          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~729          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~730          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~731          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~732          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~733          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~734          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~735          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~736          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~737          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~738          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~739          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~740          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~741          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~742          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~743          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~744          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~745          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~746          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~747          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~748          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~749          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~750          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~751          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~752          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~753          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~754          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~755          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~756          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~757          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~758          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~759          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~760          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~761          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~762          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~763          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~764          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~765          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~766          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~767          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~768          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~769          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~770          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~771          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~772          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~773          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~774          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~775          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~776          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~777          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~778          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~779          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~780          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~781          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~782          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~783          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~784          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~785          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~786          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~787          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~788          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~789          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~790          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~791          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~792          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~793          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~794          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~795          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~796          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~797          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~798          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~799          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~800          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~801          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~802          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~803          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~804          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~805          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~934          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~935          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~936          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~937          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~938          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~939          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~940          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~941          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~942          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~943          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~944          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~945          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~946          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~947          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~948          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~949          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~950          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~951          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~952          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~953          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~954          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~955          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~956          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~957          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~958          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~959          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~960          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~961          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~962          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~963          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~964          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~965          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~966          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~967          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~968          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~969          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~970          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~971          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~972          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~973          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~974          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~975          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~976          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~977          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~978          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~979          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~980          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~981          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~982          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~983          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~984          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~985          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~986          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~987          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~988          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~989          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~990          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~991          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~992          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~993          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~994          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~995          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~996          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~997          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~998          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~999          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1000         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1001         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1002         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1003         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1004         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1005         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1006         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1007         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1008         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1009         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1010         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1011         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1012         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1013         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1014         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1015         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1016         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1017         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1018         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1019         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1020         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1021         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1022         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1023         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1024         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1025         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1026         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1027         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1028         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1029         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1030         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1031         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1032         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1033         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1034         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1035         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1036         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1037         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1038         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1039         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1040         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1041         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1042         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1043         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1044         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1045         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1046         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1047         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1048         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1049         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1050         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1051         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1052         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1053         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1054         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1055         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1056         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1057         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1058         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1059         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1060         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~1061         ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~134          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~902          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~135          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~903          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~136          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~904          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~137          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~905          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~138          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~906          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~139          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~907          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~140          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~908          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~141          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~909          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~142          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~910          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~143          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~911          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~144          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~912          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~145          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~913          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~146          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~914          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~147          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~915          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~148          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~916          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~149          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~917          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~150          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~918          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~151          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~919          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~152          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~920          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~153          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~921          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~154          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~922          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~155          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~923          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~156          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~924          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~157          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~925          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~158          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~926          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~159          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~927          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~160          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~928          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~161          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~929          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~162          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~930          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~163          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~931          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~164          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~932          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~165          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~933          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~421          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~581          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~677          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~420          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~676          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~419          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~579          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~675          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~418          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~578          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~674          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~417          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~673          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~416          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~576          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~672          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~415          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~575          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~671          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~414          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~670          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~413          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~573          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~669          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~412          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~572          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~668          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~411          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~667          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~410          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~570          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~666          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~409          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~569          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~665          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~408          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~664          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~407          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~567          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~663          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~406          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~566          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~662          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~405          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~661          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~404          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~564          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~660          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~403          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~563          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~659          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~402          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~658          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~401          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~561          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~657          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~400          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~560          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~656          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~399          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~559          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~655          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~398          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~558          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~654          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~397          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~557          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~653          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~396          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~556          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~652          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~395          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~555          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~651          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~394          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~554          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~650          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~393          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~553          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~649          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~392          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~552          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~648          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~391          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~551          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~647          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~390          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~550          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~646          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~69           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~837          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~901          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~132          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~68           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~100          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~900          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~836          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~868          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~67           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~131          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~835          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~66           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~834          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~898          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~129          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~65           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~97           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~897          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~833          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~865          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~64           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~128          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~832          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~63           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~831          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~895          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~126          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~62           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~94           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~894          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~830          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~862          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~61           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~125          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~829          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~60           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~828          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~892          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~123          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~59           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~91           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~891          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~827          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~859          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~58           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~122          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~826          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~57           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~825          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~889          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~120          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~56           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~88           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~888          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~824          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~856          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~55           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~119          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~823          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~54           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~822          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~886          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~117          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~53           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~85           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~885          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~821          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~853          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~52           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~116          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~820          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~51           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~819          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~883          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~114          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~50           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~82           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~882          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~818          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~850          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~49           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~113          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~817          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~48           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~816          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~880          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~47           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~111          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~815          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~46           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~814          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~878          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~45           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~109          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~813          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~44           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~812          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~876          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~43           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~107          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~811          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~42           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~810          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~874          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~41           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~105          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~809          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~40           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~808          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~872          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~39           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~103          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~807          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~38           ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~806          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~870          ; Lost fanout                                 ;
+; RegisterFile:inst9|myarray~645          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~644          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~643          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~642          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~641          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~640          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~639          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~638          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~637          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~636          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~635          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~634          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~633          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~632          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~631          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~630          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~629          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~628          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~627          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~626          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~625          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~624          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~623          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~622          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~621          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~620          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~619          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~618          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~617          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~616          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~615          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~614          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~580          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~899          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~577          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~896          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~574          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~893          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~571          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~890          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~568          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~887          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~565          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~884          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~562          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~881          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~879          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~877          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~875          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~873          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~871          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~869          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~101          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~133          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~867          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~99           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~866          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~98           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~130          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~864          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~96           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~863          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~95           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~127          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~861          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~93           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~860          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~92           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~124          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~858          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~90           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~857          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~89           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~121          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~855          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~87           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~854          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~86           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~118          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~852          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~84           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~851          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~83           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~115          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~849          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~81           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~848          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~80           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~112          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~847          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~79           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~846          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~78           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~110          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~845          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~77           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~844          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~76           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~108          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~843          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~75           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~842          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~74           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~106          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~841          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~73           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~840          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~72           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~104          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~839          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~71           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~838          ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~70           ; Stuck at GND due to stuck port clock_enable ;
+; RegisterFile:inst9|myarray~102          ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 898 ;                                             ;
++-----------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                       ;
++--------------------------------+--------------------------------+-----------------------------------------------------------------+
+; Register name                  ; Reason for Removal             ; Registers Removed due to This Register                          ;
++--------------------------------+--------------------------------+-----------------------------------------------------------------+
+; RegisterFile:inst9|myarray~617 ; Stuck at GND                   ; RegisterFile:inst9|myarray~616, RegisterFile:inst9|myarray~615, ;
+;                                ; due to stuck port clock_enable ; RegisterFile:inst9|myarray~614, RegisterFile:inst9|myarray~580, ;
+;                                ;                                ; RegisterFile:inst9|myarray~899, RegisterFile:inst9|myarray~577, ;
+;                                ;                                ; RegisterFile:inst9|myarray~896, RegisterFile:inst9|myarray~574, ;
+;                                ;                                ; RegisterFile:inst9|myarray~893, RegisterFile:inst9|myarray~571, ;
+;                                ;                                ; RegisterFile:inst9|myarray~890, RegisterFile:inst9|myarray~568, ;
+;                                ;                                ; RegisterFile:inst9|myarray~887, RegisterFile:inst9|myarray~565, ;
+;                                ;                                ; RegisterFile:inst9|myarray~884, RegisterFile:inst9|myarray~562, ;
+;                                ;                                ; RegisterFile:inst9|myarray~881, RegisterFile:inst9|myarray~879, ;
+;                                ;                                ; RegisterFile:inst9|myarray~877, RegisterFile:inst9|myarray~875, ;
+;                                ;                                ; RegisterFile:inst9|myarray~871, RegisterFile:inst9|myarray~869, ;
+;                                ;                                ; RegisterFile:inst9|myarray~101, RegisterFile:inst9|myarray~133, ;
+;                                ;                                ; RegisterFile:inst9|myarray~867, RegisterFile:inst9|myarray~99,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~866, RegisterFile:inst9|myarray~98,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~130, RegisterFile:inst9|myarray~864, ;
+;                                ;                                ; RegisterFile:inst9|myarray~96, RegisterFile:inst9|myarray~863,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~95, RegisterFile:inst9|myarray~127,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~861, RegisterFile:inst9|myarray~93,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~860, RegisterFile:inst9|myarray~92,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~124, RegisterFile:inst9|myarray~858, ;
+;                                ;                                ; RegisterFile:inst9|myarray~90, RegisterFile:inst9|myarray~857,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~89, RegisterFile:inst9|myarray~121,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~855, RegisterFile:inst9|myarray~87,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~854, RegisterFile:inst9|myarray~86,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~118, RegisterFile:inst9|myarray~852, ;
+;                                ;                                ; RegisterFile:inst9|myarray~84, RegisterFile:inst9|myarray~851,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~83, RegisterFile:inst9|myarray~115,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~849, RegisterFile:inst9|myarray~81,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~848, RegisterFile:inst9|myarray~80,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~112, RegisterFile:inst9|myarray~847, ;
+;                                ;                                ; RegisterFile:inst9|myarray~79, RegisterFile:inst9|myarray~846,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~78, RegisterFile:inst9|myarray~110,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~845, RegisterFile:inst9|myarray~77,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~844, RegisterFile:inst9|myarray~76,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~108, RegisterFile:inst9|myarray~843, ;
+;                                ;                                ; RegisterFile:inst9|myarray~75, RegisterFile:inst9|myarray~842,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~74, RegisterFile:inst9|myarray~106,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~840, RegisterFile:inst9|myarray~72,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~104, RegisterFile:inst9|myarray~839, ;
+;                                ;                                ; RegisterFile:inst9|myarray~71, RegisterFile:inst9|myarray~838,  ;
+;                                ;                                ; RegisterFile:inst9|myarray~70, RegisterFile:inst9|myarray~102   ;
++--------------------------------+--------------------------------+-----------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 158   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 128   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                ;
++---------------------------+--------------------------+------+
+; Register Name             ; Megafunction             ; Type ;
++---------------------------+--------------------------+------+
+; DMem:inst4|DataOut[0..31] ; DMem:inst4|myarray_rtl_0 ; RAM  ;
++---------------------------+--------------------------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Datapath|MainControl:inst6|Branch ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |Datapath|ALU:inst2|R[30]          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Source assignments for DMem:inst4|altsyncram:myarray_rtl_0|altsyncram_n8u1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------+
+; Assignment                      ; Value              ; From ; To                          ;
++---------------------------------+--------------------+------+-----------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                           ;
++---------------------------------+--------------------+------+-----------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LPM_CONSTANT:inst17 ;
++--------------------+------------------+--------------------------+
+; Parameter Name     ; Value            ; Type                     ;
++--------------------+------------------+--------------------------+
+; LPM_WIDTH          ; 32               ; Signed Integer           ;
+; LPM_CVALUE         ; 4                ; Signed Integer           ;
+; ENABLE_RUNTIME_MOD ; NO               ; Untyped                  ;
+; CBXI_PARAMETER     ; lpm_constant_4j4 ; Untyped                  ;
++--------------------+------------------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DMem:inst4|altsyncram:myarray_rtl_0       ;
++------------------------------------+--------------------------------------+----------------+
+; Parameter Name                     ; Value                                ; Type           ;
++------------------------------------+--------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                    ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                            ; Untyped        ;
+; WIDTH_A                            ; 32                                   ; Untyped        ;
+; WIDTHAD_A                          ; 5                                    ; Untyped        ;
+; NUMWORDS_A                         ; 32                                   ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                 ; Untyped        ;
+; WIDTH_B                            ; 32                                   ; Untyped        ;
+; WIDTHAD_B                          ; 5                                    ; Untyped        ;
+; NUMWORDS_B                         ; 32                                   ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK0                               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0                               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                    ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                    ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                             ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                 ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                 ; Untyped        ;
+; INIT_FILE                          ; db/Datapath.ram0_DMem_22ecb0.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                    ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone V                            ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_n8u1                      ; Untyped        ;
++------------------------------------+--------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                ;
++-------------------------------------------+-------------------------------------+
+; Name                                      ; Value                               ;
++-------------------------------------------+-------------------------------------+
+; Number of entity instances                ; 1                                   ;
+; Entity Instance                           ; DMem:inst4|altsyncram:myarray_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                           ;
+;     -- WIDTH_A                            ; 32                                  ;
+;     -- NUMWORDS_A                         ; 32                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                        ;
+;     -- WIDTH_B                            ; 32                                  ;
+;     -- NUMWORDS_B                         ; 32                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                            ;
++-------------------------------------------+-------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 158                         ;
+;     ENA               ; 128                         ;
+;     plain             ; 30                          ;
+; arriav_lcell_comb     ; 310                         ;
+;     arith             ; 95                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 30                          ;
+;         4 data inputs ; 31                          ;
+;         5 data inputs ; 33                          ;
+;     normal            ; 215                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 23                          ;
+;         3 data inputs ; 85                          ;
+;         4 data inputs ; 32                          ;
+;         5 data inputs ; 12                          ;
+;         6 data inputs ; 52                          ;
+; boundary_port         ; 246                         ;
+; stratixv_ram_block    ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 6.90                        ;
+; Average LUT depth     ; 4.17                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Processing started: Wed Dec  3 16:45:54 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Datapath -c Datapath
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file adder.vhd
+    Info (12022): Found design unit 1: Adder-structure File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Adder.vhd Line: 13
+    Info (12023): Found entity 1: Adder File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Adder.vhd Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.bdf
+    Info (12023): Found entity 1: Datapath
+Info (12021): Found 2 design units, including 1 entities, in source file shiftl2.vhd
+    Info (12022): Found design unit 1: ShiftL2-internal File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ShiftL2.vhd Line: 12
+    Info (12023): Found entity 1: ShiftL2 File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ShiftL2.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file sign_ext.vhd
+    Info (12022): Found design unit 1: Sign_Ext-internal File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 12
+    Info (12023): Found entity 1: Sign_Ext File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file registerfile.vhd
+    Info (12022): Found design unit 1: RegisterFile-internal File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/RegisterFile.vhd Line: 17
+    Info (12023): Found entity 1: RegisterFile File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/RegisterFile.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mux_2_1.vhd
+    Info (12022): Found design unit 1: Mux_2_1-behavioral File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 12
+    Info (12023): Found entity 1: Mux_2_1 File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file instructionmem.vhd
+    Info (12022): Found design unit 1: InstructionMem-internal File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/InstructionMem.vhd Line: 13
+    Info (12023): Found entity 1: InstructionMem File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/InstructionMem.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file alu_controller.vhd
+    Info (12022): Found design unit 1: ALU_Controller-internal File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU_Controller.vhd Line: 15
+    Info (12023): Found entity 1: ALU_Controller File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU_Controller.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file dmem.vhd
+    Info (12022): Found design unit 1: DMem-internal File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/DMem.vhd Line: 14
+    Info (12023): Found entity 1: DMem File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/DMem.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file maincontrol.vhd
+    Info (12022): Found design unit 1: MainControl-internal File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 12
+    Info (12023): Found entity 1: MainControl File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: ALU-internal File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 15
+    Info (12023): Found entity 1: ALU File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file pc.vhd
+    Info (12022): Found design unit 1: PC-internal File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/PC.vhd Line: 14
+    Info (12023): Found entity 1: PC File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/PC.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mux_2_1_5b.vhd
+    Info (12022): Found design unit 1: Mux_2_1_5b-behavioral File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1_5b.vhd Line: 13
+    Info (12023): Found entity 1: Mux_2_1_5b File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1_5b.vhd Line: 5
+Info (12127): Elaborating entity "Datapath" for the top level hierarchy
+Warning (275011): Block or symbol "RegisterFile" of instance "inst9" overlaps another block or symbol
+Info (12128): Elaborating entity "MainControl" for hierarchy "MainControl:inst6"
+Warning (10631): VHDL Process Statement warning at MainControl.vhd(14): inferring latch(es) for signal or variable "RegDst", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Warning (10631): VHDL Process Statement warning at MainControl.vhd(14): inferring latch(es) for signal or variable "ALUSrc", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Warning (10631): VHDL Process Statement warning at MainControl.vhd(14): inferring latch(es) for signal or variable "ALUop", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Warning (10631): VHDL Process Statement warning at MainControl.vhd(14): inferring latch(es) for signal or variable "MemRead", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Warning (10631): VHDL Process Statement warning at MainControl.vhd(14): inferring latch(es) for signal or variable "MemWrite", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Warning (10631): VHDL Process Statement warning at MainControl.vhd(14): inferring latch(es) for signal or variable "Branch", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Warning (10631): VHDL Process Statement warning at MainControl.vhd(14): inferring latch(es) for signal or variable "RegWrite", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Warning (10631): VHDL Process Statement warning at MainControl.vhd(14): inferring latch(es) for signal or variable "MemtoReg", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Info (10041): Inferred latch for "MemtoReg" at MainControl.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Info (10041): Inferred latch for "RegWrite" at MainControl.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Info (10041): Inferred latch for "Branch" at MainControl.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Info (10041): Inferred latch for "MemWrite" at MainControl.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Info (10041): Inferred latch for "MemRead" at MainControl.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Info (10041): Inferred latch for "ALUop[0]" at MainControl.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Info (10041): Inferred latch for "ALUop[1]" at MainControl.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Info (10041): Inferred latch for "ALUSrc" at MainControl.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Info (10041): Inferred latch for "RegDst" at MainControl.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/MainControl.vhd Line: 14
+Info (12128): Elaborating entity "InstructionMem" for hierarchy "InstructionMem:inst5"
+Info (12128): Elaborating entity "PC" for hierarchy "PC:inst8"
+Info (12128): Elaborating entity "Mux_2_1" for hierarchy "Mux_2_1:inst7"
+Warning (10631): VHDL Process Statement warning at Mux_2_1.vhd(14): inferring latch(es) for signal or variable "R", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[0]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[1]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[2]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[3]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[4]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[5]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[6]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[7]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[8]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[9]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[10]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[11]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[12]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[13]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[14]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[15]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[16]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[17]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[18]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[19]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[20]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[21]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[22]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[23]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[24]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[25]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[26]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[27]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[28]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[29]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[30]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (10041): Inferred latch for "R[31]" at Mux_2_1.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1.vhd Line: 14
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:inst2"
+Warning (10492): VHDL Process Statement warning at ALU.vhd(59): signal "Rtemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at ALU.vhd(64): signal "Rtemp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 64
+Warning (10631): VHDL Process Statement warning at ALU.vhd(22): inferring latch(es) for signal or variable "R", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (10631): VHDL Process Statement warning at ALU.vhd(22): inferring latch(es) for signal or variable "Zero", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (10631): VHDL Process Statement warning at ALU.vhd(22): inferring latch(es) for signal or variable "Rtemp", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[0]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[1]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[2]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[3]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[4]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[5]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[6]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[7]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[8]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[9]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[10]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[11]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[12]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[13]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[14]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[15]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[16]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[17]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[18]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[19]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[20]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[21]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[22]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[23]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[24]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[25]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[26]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[27]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[28]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[29]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[30]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Rtemp[31]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "Zero" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[0]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[1]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[2]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[3]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[4]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[5]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[6]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[7]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[8]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[9]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[10]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[11]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[12]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[13]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[14]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[15]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[16]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[17]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[18]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[19]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[20]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[21]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[22]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[23]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[24]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[25]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[26]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[27]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[28]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[29]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[30]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (10041): Inferred latch for "R[31]" at ALU.vhd(22) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (12128): Elaborating entity "RegisterFile" for hierarchy "RegisterFile:inst9"
+Info (12128): Elaborating entity "DMem" for hierarchy "DMem:inst4"
+Info (12128): Elaborating entity "Mux_2_1_5b" for hierarchy "Mux_2_1_5b:inst18"
+Warning (10631): VHDL Process Statement warning at Mux_2_1_5b.vhd(15): inferring latch(es) for signal or variable "R", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1_5b.vhd Line: 15
+Info (10041): Inferred latch for "R[0]" at Mux_2_1_5b.vhd(15) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1_5b.vhd Line: 15
+Info (10041): Inferred latch for "R[1]" at Mux_2_1_5b.vhd(15) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1_5b.vhd Line: 15
+Info (10041): Inferred latch for "R[2]" at Mux_2_1_5b.vhd(15) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1_5b.vhd Line: 15
+Info (10041): Inferred latch for "R[3]" at Mux_2_1_5b.vhd(15) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1_5b.vhd Line: 15
+Info (10041): Inferred latch for "R[4]" at Mux_2_1_5b.vhd(15) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Mux_2_1_5b.vhd Line: 15
+Info (12128): Elaborating entity "Sign_Ext" for hierarchy "Sign_Ext:inst11"
+Warning (10631): VHDL Process Statement warning at Sign_Ext.vhd(14): inferring latch(es) for signal or variable "Y", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[0]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[1]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[2]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[3]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[4]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[5]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[6]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[7]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[8]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[9]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[10]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[11]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[12]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[13]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[14]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[15]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[16]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[17]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[18]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[19]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[20]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[21]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[22]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[23]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[24]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[25]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[26]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[27]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[28]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[29]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[30]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (10041): Inferred latch for "Y[31]" at Sign_Ext.vhd(14) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/Sign_Ext.vhd Line: 14
+Info (12128): Elaborating entity "ALU_Controller" for hierarchy "ALU_Controller:inst3"
+Warning (10631): VHDL Process Statement warning at ALU_Controller.vhd(18): inferring latch(es) for signal or variable "Y", which holds its previous value in one or more paths through the process File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU_Controller.vhd Line: 18
+Info (10041): Inferred latch for "Y[0]" at ALU_Controller.vhd(18) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU_Controller.vhd Line: 18
+Info (10041): Inferred latch for "Y[1]" at ALU_Controller.vhd(18) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU_Controller.vhd Line: 18
+Info (10041): Inferred latch for "Y[2]" at ALU_Controller.vhd(18) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU_Controller.vhd Line: 18
+Info (10041): Inferred latch for "Y[3]" at ALU_Controller.vhd(18) File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU_Controller.vhd Line: 18
+Info (12128): Elaborating entity "Adder" for hierarchy "Adder:inst"
+Info (12128): Elaborating entity "LPM_CONSTANT" for hierarchy "LPM_CONSTANT:inst17"
+Info (12130): Elaborated megafunction instantiation "LPM_CONSTANT:inst17"
+Info (12133): Instantiated megafunction "LPM_CONSTANT:inst17" with the following parameter:
+    Info (12134): Parameter "LPM_CVALUE" = "4"
+    Info (12134): Parameter "LPM_WIDTH" = "32"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_constant_4j4.tdf
+    Info (12023): Found entity 1: lpm_constant_4j4 File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/db/lpm_constant_4j4.tdf Line: 23
+Info (12128): Elaborating entity "lpm_constant_4j4" for hierarchy "LPM_CONSTANT:inst17|lpm_constant_4j4:ag" File: c:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_constant.tdf Line: 46
+Info (12128): Elaborating entity "ShiftL2" for hierarchy "ShiftL2:inst10"
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276007): RAM logic "RegisterFile:inst9|myarray" is uninferred due to asynchronous read logic File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/RegisterFile.vhd Line: 19
+    Info (276004): RAM logic "InstructionMem:inst5|myarray" is uninferred due to inappropriate RAM size File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/InstructionMem.vhd Line: 16
+Warning (14026): LATCH primitive "ALU:inst2|R[31]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[30]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[29]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[28]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[27]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[26]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[25]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[24]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[23]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[22]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[21]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[20]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[19]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[18]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[17]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[16]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[15]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[14]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[13]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[12]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[11]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[10]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[9]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[8]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[7]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[6]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[5]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[4]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[3]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[2]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[1]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Warning (14026): LATCH primitive "ALU:inst2|R[0]" is permanently enabled File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/ALU.vhd Line: 22
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "DMem:inst4|myarray_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/Datapath.ram0_DMem_22ecb0.hdl.mif
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+        Info (286033): Parameter RDCONTROL_REG_B set to CLOCK0
+Info (12130): Elaborated megafunction instantiation "DMem:inst4|altsyncram:myarray_rtl_0"
+Info (12133): Instantiated megafunction "DMem:inst4|altsyncram:myarray_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/Datapath.ram0_DMem_22ecb0.hdl.mif"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+    Info (12134): Parameter "RDCONTROL_REG_B" = "CLOCK0"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_n8u1.tdf
+    Info (12023): Found entity 1: altsyncram_n8u1 File: C:/Users/anish/Downloads/FINAL_PROJECT/Quartus/db/altsyncram_n8u1.tdf Line: 28
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ALU_Opcode[0]" is stuck at GND
+    Warning (13410): Pin "SX[31]" is stuck at GND
+    Warning (13410): Pin "SX[30]" is stuck at GND
+    Warning (13410): Pin "SX[29]" is stuck at GND
+    Warning (13410): Pin "SX[28]" is stuck at GND
+    Warning (13410): Pin "SX[27]" is stuck at GND
+    Warning (13410): Pin "SX[26]" is stuck at GND
+    Warning (13410): Pin "SX[25]" is stuck at GND
+    Warning (13410): Pin "SX[24]" is stuck at GND
+    Warning (13410): Pin "SX[23]" is stuck at GND
+    Warning (13410): Pin "SX[22]" is stuck at GND
+    Warning (13410): Pin "SX[21]" is stuck at GND
+    Warning (13410): Pin "SX[20]" is stuck at GND
+    Warning (13410): Pin "SX[19]" is stuck at GND
+    Warning (13410): Pin "SX[18]" is stuck at GND
+    Warning (13410): Pin "SX[17]" is stuck at GND
+    Warning (13410): Pin "SX[16]" is stuck at GND
+    Warning (13410): Pin "SX[15]" is stuck at GND
+    Warning (13410): Pin "SX[13]" is stuck at GND
+    Warning (13410): Pin "SX[11]" is stuck at GND
+    Warning (13410): Pin "SX[10]" is stuck at GND
+    Warning (13410): Pin "SX[9]" is stuck at GND
+    Warning (13410): Pin "SX[8]" is stuck at GND
+    Warning (13410): Pin "SX[7]" is stuck at GND
+    Warning (13410): Pin "SX[6]" is stuck at GND
+    Warning (13410): Pin "SX[4]" is stuck at GND
+    Warning (13410): Pin "SX[3]" is stuck at GND
+    Warning (13410): Pin "SX[0]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[30]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[28]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[23]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[18]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[15]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[13]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[11]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[10]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[9]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[8]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[7]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[6]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[4]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[3]" is stuck at GND
+    Warning (13410): Pin "Current_Instruction[0]" is stuck at GND
+    Warning (13410): Pin "Current_PC[1]" is stuck at GND
+    Warning (13410): Pin "Current_PC[0]" is stuck at GND
+    Warning (13410): Pin "Opcode[3]" is stuck at GND
+    Warning (13410): Pin "Opcode[1]" is stuck at VCC
+    Warning (13410): Pin "Opcode[0]" is stuck at GND
+    Warning (13410): Pin "Register1Number[2]" is stuck at GND
+    Warning (13410): Pin "Register2Number[2]" is stuck at GND
+    Warning (13410): Pin "Register3Number[2]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 782 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 705 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 245 output pins
+    Info (21061): Implemented 427 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 103 warnings
+    Info: Peak virtual memory: 5009 megabytes
+    Info: Processing ended: Wed Dec  3 16:46:02 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:16
+
+

@@ -1,0 +1,143 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+!s11e vcom 2025.2 2025.05, May 31 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/Users/anish/Downloads/FINAL_PROJECT/Quartus/simulation/qsim
+T_opt
+!i145 1
+!i144 0
+!s110 1764799202
+VPOh45929Bka89eW1I::b^3
+04 20 13 work datapath_vhd_vec_tst datapath_arch 1
+=1-f0d4152471c4-6930b2e1-1ee-521c
+R1
+!s12f OEM100
+!s12b OEM100
+!s124 OEM10U2 
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim +acc
+tCvgOpt 0 defaultOptions 1107585188
+n@_opt
+OL;O;2025.2;82
+Edatapath
+Z3 w1764799199
+Z4 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 bidJP:nVBC?Z<0FfQ6c?51
+Z5 DPx8 cyclonev 19 cyclonev_components 0 22 B^l3n9Pbn_IzFF2INSB@J0
+Z6 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 IkVUgNVX366BneI70`VBS2
+Z7 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z8 DPx6 altera 11 dffeas_pack 0 22 HeG`SlgMb6=o0zVGZnEz^3
+Z9 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z10 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z11 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z12 DPx6 altera 28 altera_primitives_components 0 22 k4Yn[[d=9S17VVF>?>37I3
+!i122 24
+R2
+Z13 8Datapath.vho
+Z14 FDatapath.vho
+l0
+L39 1
+V0B^ffMEadT1Z85AH:<<IJ3
+!s100 ;0cfn@9dL0PPbWl:66XfL2
+Z15 OL;C;2025.2;82
+32
+Z16 !s110 1764799200
+!i10b 1
+Z17 !s108 1764799200.000000
+Z18 !s90 -work|work|Datapath.vho|
+Z19 !s107 Datapath.vho|
+!i113 0
+Z20 o-work work
+Z21 tExplicit 1 CvgOpt 0 defaultOptions 1083072464
+Astructure
+R4
+R5
+R6
+R7
+R8
+R9
+R10
+R11
+R12
+DEx4 work 8 datapath 0 22 0B^ffMEadT1Z85AH:<<IJ3
+!i122 24
+l1203
+L306 13051
+VU^SG^`9Y^dddR58kI9hf52
+!s100 Z[B`5Aa;4_?<nZ2;jEVf13
+R15
+32
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 0
+R20
+R21
+Edatapath_vhd_vec_tst
+Z22 w1764799197
+R10
+R11
+!i122 25
+R2
+Z23 8Waveform.vwf.vht
+Z24 FWaveform.vwf.vht
+l0
+L32 1
+V47f19g2J5BQoOSjO<oZJ>1
+!s100 enFL>4D>jKM[^LKP;C0gO1
+R15
+32
+R16
+!i10b 1
+R17
+Z25 !s90 -work|work|Waveform.vwf.vht|
+Z26 !s107 Waveform.vwf.vht|
+!i113 0
+R20
+R21
+Adatapath_arch
+R10
+R11
+DEx4 work 20 datapath_vhd_vec_tst 0 22 47f19g2J5BQoOSjO<oZJ>1
+!i122 25
+l67
+L34 70
+VU[SS[UQ^czlZC2YJb7VDW2
+!s100 Ro_UbF0fXS2go[ZNzb1R02
+R15
+32
+R16
+!i10b 1
+R17
+R25
+R26
+!i113 0
+R20
+R21

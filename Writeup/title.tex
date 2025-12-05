@@ -1,0 +1,34 @@
+\begin{titlepage}
+  \vspace{5in}
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+    \center
+    \textsc{\LARGE Georgia Southern University \\ \vspace{0.2cm} \Large Allen E. Paulson College of Engineering and Computing \\ Department of Electrical and Computer Engineering}\\[0.3cm]
+
+    \HRule \\[0.4cm]
+    { \huge \bfseries Computer Systems Design Final Project}\\[0.20cm]
+    { \Large \bfseries Single-Cycle MIPS Processor}\\[0.10cm]
+    \HRule \\[0.6cm]
+    
+    \begin{minipage}{0.4\textwidth}
+    \begin{flushleft} \Large
+    Anish Goyal
+    \end{flushleft}
+    \end{minipage}
+    ~
+    \begin{minipage}{0.4\textwidth}
+    \begin{flushright} \Large
+    Dr. Mohammad Ahad \\ Associate Professor 
+    \end{flushright}
+    \end{minipage}\\[0.5cm]
+    
+    {\huge December 5, 2025}\\[0.5cm]
+
+    \vspace{0.1cm}
+
+    \includegraphics[width=0.60\textwidth]{img/logo.png}\\
+
+    \begin{abstract}
+      \section*{Abstract}
+      \noindent I designed and implemented a single-cycle MIPS processor using VHDL and Intel Quartus Prime. The processor supports R-type instructions (add, sub) and I-type instructions (lw, sw). I constructed the datapath using schematic capture in Quartus, connecting individual VHDL components including the program counter, instruction memory, register file, ALU, ALU controller, main control unit, data memory, multiplexers, and sign extension unit. I validated the processor through functional simulation in Questa/ModelSim, verifying correct instruction execution across four test instructions. The simulation results confirm proper ALU operations, register reads and writes, and memory access behavior.
+    \end{abstract}
+  \end{titlepage}

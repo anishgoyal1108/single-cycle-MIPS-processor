@@ -1,0 +1,106 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY ALU IS
+	PORT (
+		A, B : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		OPCODE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		Zero : OUT STD_LOGIC;
+		R : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+	);
+ 
+ 
+END ALU;
+
+ARCHITECTURE internal OF ALU IS
+
+	SIGNAL temp : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL Rtemp : STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+BEGIN
+	PROCESS (OPCODE, A, B, temp)
+	BEGIN
+		IF (OPCODE = "0000") THEN
+			R <= NOT A;
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "0001") THEN
+			R <= NOT B;
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "1000") THEN 
+			R <= A AND B;
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "0011") THEN
+			R <= NOT (A AND B);
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "0100") THEN 
+			R <= A OR B;
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "0101") THEN 
+			R <= NOT (A OR B);
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "0110") THEN
+			R <= A XOR B;
+ 
+		ELSIF (OPCODE = "0111") THEN
+			R <= NOT(A XOR B);
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "0110") THEN 
+
+			Rtemp <= A - B;
+			IF (Rtemp = x"00000000") THEN
+				Zero <= '1';
+			ELSE
+				Zero <= '0';
+			END IF;
+			R <= Rtemp; 
+ 
+		ELSIF (OPCODE = "0010") THEN 
+			R <= A + B;
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "1001") THEN 
+			IF (A < B) THEN
+				R <= x"00000001";
+				Zero <= '0';
+			ELSE
+				R <= x"00000000";
+				Zero <= '0';
+			END IF;
+ 
+		ELSIF (OPCODE = "1010") THEN
+			R <= A + "00000001";
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "1011") THEN
+			R <= A - x"00000001";
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "1100") THEN
+			R <= B + x"00000001";
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "1101") THEN
+			R <= B - x"00000001";
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "1110") THEN
+			R <= (NOT A) + x"00000001";
+			Zero <= '0';
+ 
+		ELSIF (OPCODE = "1111") THEN
+			R <= (NOT B) + x"00000001";
+			Zero <= '0';
+ 
+		END IF;
+ 
+	END PROCESS;
+
+END internal;

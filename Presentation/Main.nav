@@ -1,0 +1,91 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\sectionentry {1}{Introduction}{3}{Introduction}{0}}
+\headcommand {\slideentry {1}{0}{1}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{4}{Motivation}}
+\headcommand {\slideentry {1}{1}{1}{4/7}{Motivation}{0}}
+\headcommand {\beamer@framepages {4}{7}}
+\headcommand {\beamer@subsectionpages {4}{7}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{8}{Abstract}}
+\headcommand {\slideentry {1}{2}{1}{8/17}{Abstract}{0}}
+\headcommand {\beamer@framepages {8}{17}}
+\headcommand {\beamer@subsectionpages {8}{17}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{18}{What was planned}}
+\headcommand {\slideentry {1}{3}{1}{18/23}{What was planned}{0}}
+\headcommand {\beamer@framepages {18}{23}}
+\headcommand {\beamer@sectionpages {3}{23}}
+\headcommand {\beamer@subsectionpages {18}{23}}
+\headcommand {\sectionentry {2}{Methodology}{24}{Methodology}{0}}
+\headcommand {\slideentry {2}{0}{1}{24/24}{}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\beamer@subsectionpages {24}{24}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{25}{Design}}
+\headcommand {\slideentry {2}{1}{1}{25/31}{Design}{0}}
+\headcommand {\beamer@framepages {25}{31}}
+\headcommand {\beamer@sectionpages {24}{31}}
+\headcommand {\beamer@subsectionpages {25}{31}}
+\headcommand {\sectionentry {3}{Implementation}{32}{Implementation}{0}}
+\headcommand {\slideentry {3}{0}{1}{32/32}{}{0}}
+\headcommand {\beamer@framepages {32}{32}}
+\headcommand {\beamer@subsectionpages {32}{32}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{33}{Block Diagram}}
+\headcommand {\slideentry {3}{1}{1}{33/36}{Block Diagram}{0}}
+\headcommand {\beamer@framepages {33}{36}}
+\headcommand {\beamer@subsectionpages {33}{36}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{37}{Opcode Implementation}}
+\headcommand {\slideentry {3}{2}{1}{37/46}{Opcode Implementation}{0}}
+\headcommand {\beamer@framepages {37}{46}}
+\headcommand {\beamer@subsectionpages {37}{46}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{47}{Key Components}}
+\headcommand {\slideentry {3}{3}{1}{47/57}{Key Components}{0}}
+\headcommand {\beamer@framepages {47}{57}}
+\headcommand {\beamer@sectionpages {32}{57}}
+\headcommand {\beamer@subsectionpages {47}{57}}
+\headcommand {\sectionentry {4}{Results}{58}{Results}{0}}
+\headcommand {\slideentry {4}{0}{1}{58/58}{}{0}}
+\headcommand {\beamer@framepages {58}{58}}
+\headcommand {\beamer@subsectionpages {58}{58}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{59}{Sample Waveform}}
+\headcommand {\slideentry {4}{1}{1}{59/59}{Sample Waveform}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\slideentry {4}{1}{2}{60/60}{Sample Waveform}{0}}
+\headcommand {\beamer@framepages {60}{60}}
+\headcommand {\beamer@sectionpages {58}{60}}
+\headcommand {\beamer@subsectionpages {59}{60}}
+\headcommand {\sectionentry {5}{Challenges and Improvements}{61}{Challenges and Improvements}{0}}
+\headcommand {\slideentry {5}{0}{1}{61/61}{}{0}}
+\headcommand {\beamer@framepages {61}{61}}
+\headcommand {\beamer@subsectionpages {61}{61}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{62}{Problems During Design}}
+\headcommand {\slideentry {5}{1}{1}{62/66}{Problems During Design}{0}}
+\headcommand {\beamer@framepages {62}{66}}
+\headcommand {\slideentry {5}{1}{2}{67/70}{Problems During Design}{0}}
+\headcommand {\beamer@framepages {67}{70}}
+\headcommand {\beamer@subsectionpages {62}{70}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{71}{Potential Improvements}}
+\headcommand {\slideentry {5}{2}{1}{71/75}{Potential Improvements}{0}}
+\headcommand {\beamer@framepages {71}{75}}
+\headcommand {\slideentry {5}{2}{2}{76/79}{Potential Improvements}{0}}
+\headcommand {\beamer@framepages {76}{79}}
+\headcommand {\beamer@subsectionpages {71}{79}}
+\headcommand {\beamer@subsectionentry {0}{5}{3}{80}{Conclusion}}
+\headcommand {\slideentry {5}{3}{1}{80/84}{Conclusion}{0}}
+\headcommand {\beamer@framepages {80}{84}}
+\headcommand {\beamer@sectionpages {61}{84}}
+\headcommand {\beamer@subsectionpages {80}{84}}
+\headcommand {\sectionentry {6}{\translate {References}}{85}{\translate {References}}{0}}
+\headcommand {\slideentry {6}{0}{0}{85/85}{Conclusion}{0}}
+\headcommand {\beamer@framepages {85}{85}}
+\headcommand {\slideentry {6}{0}{1}{86/86}{Conclusion}{0}}
+\headcommand {\beamer@framepages {86}{86}}
+\headcommand {\beamer@partpages {1}{86}}
+\headcommand {\beamer@subsectionpages {80}{86}}
+\headcommand {\beamer@sectionpages {61}{86}}
+\headcommand {\beamer@documentpages {86}}
+\headcommand {\gdef \inserttotalframenumber {23}}

@@ -1,0 +1,26 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.NUMERIC_STD.ALL;
+
+ENTITY InstructionMem IS
+	PORT (
+		InstAddress : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		InstOUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+	);
+END InstructionMem;
+
+ARCHITECTURE internal OF InstructionMem IS
+
+	TYPE INST_FILE_TYPE IS ARRAY(0 TO 3) OF STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL myarray : INST_FILE_TYPE := (
+		x"012A4020", 
+		x"01285022", 
+		x"8E510000", 
+		x"AE290004"
+	);
+
+BEGIN
+	InstOUT <= myarray(to_integer(unsigned(InstAddress) / 4));
+
+END internal;

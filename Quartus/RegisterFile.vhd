@@ -1,0 +1,63 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.NUMERIC_STD.ALL;
+
+ENTITY RegisterFile IS
+
+	PORT (
+		RegWrite : IN STD_LOGIC;
+		RegOne, RegTwo, RegThree : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+		DataIn : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+		RegOutOne, RegOutTwo : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+	);
+ 
+END RegisterFile;
+
+ARCHITECTURE internal OF RegisterFile IS
+	TYPE REG_FILE_TYPE IS ARRAY (0 TO 31) OF STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL myarray : REG_FILE_TYPE := (x"00000000", 
+		x"00000001", 
+		x"00000002", 
+		x"00000003", 
+		x"00000004", 
+		x"00000005", 
+		x"00000006", 
+		x"00000007", 
+		x"00000008", 
+		x"00000009", 
+		x"00000010", 
+		x"00000011", 
+		x"00000012", 
+		x"00000013", 
+		x"00000014", 
+		x"00000015", 
+		x"00000016", 
+		x"00000017", 
+		x"00000018", 
+		x"00000019", 
+		x"00000020", 
+		x"00000021", 
+		x"00000022", 
+		x"00000023", 
+		x"00000024", 
+		x"00000025", 
+		x"00000026", 
+		x"00000027", 
+		x"00000028", 
+		x"00000029", 
+		x"00000030", 
+		x"00000031"
+	);
+
+BEGIN
+	PROCESS (RegWrite)
+	BEGIN
+		IF (RegWrite = '1') THEN
+			myarray(TO_INTEGER(UNSIGNED(RegThree))) <= DataIn; 
+		END IF;
+	END PROCESS;
+
+	RegOutOne <= myarray(TO_INTEGER(UNSIGNED(RegOne))); 
+	RegOutTwo <= myarray(TO_INTEGER(UNSIGNED(RegTwo)));
+END internal;

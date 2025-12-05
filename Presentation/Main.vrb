@@ -1,0 +1,9 @@
+\frametitle{Problems During Design}
+    \framesubtitle{Additional issues}
+
+    \begin{itemize}
+        \item \textbf{XOR overriding SUB} -- class code had XOR opcode conflicting with SUB; required control value changes
+        \item \textbf{Questa license server} -- needed to set \texttt{SALT\_LICENSE\_SERVER} environment variable
+        \item \textbf{MemToReg mux polarity} -- flipped polarity inherent in reference diagram
+        \item \textbf{5-bit 2-to-1 mux} -- needed to create a special 5-bit mux before register file
+    \end{itemize}
