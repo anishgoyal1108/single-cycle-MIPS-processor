@@ -6,7 +6,7 @@
 
 ## Overview
 
-This repository contains the complete VHDL implementation, simulation files, and documentation for a **Single-Cycle MIPS Processor** developed as the final project for EENG 5342 (Advanced Digital Design) at Georgia Southern University. The processor executes a subset of the MIPS instruction set, including R-type arithmetic operations and I-type memory access instructions, with all components designed from scratch in VHDL and integrated using Intel Quartus Prime.
+This repository contains the complete VHDL implementation, simulation files, and documentation for a **Single-Cycle MIPS Processor** developed as the final project for EENG 5342 (Computer Systems Design) at Georgia Southern University. The processor executes a subset of the MIPS instruction set, including R-type arithmetic operations and I-type memory access instructions, with all components designed from scratch in VHDL and integrated using Intel Quartus Prime.
 
 **Project Documentation:**
 - [📊 Project Presentation](Presentation/Main.pdf)
